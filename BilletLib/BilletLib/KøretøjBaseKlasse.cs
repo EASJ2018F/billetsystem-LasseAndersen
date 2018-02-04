@@ -13,7 +13,6 @@ namespace BilletLib
         private string _nummerplade;
         private DateTime _dato;
         private bool _harbrobizz;
-        private int _billet;
 
         public KøretøjBaseKlasse()
         {
@@ -34,7 +33,7 @@ namespace BilletLib
         public string Nummerplade { get; set; }
         public DateTime Dato { get; set; }
         public bool HarBrobizz { get; set; }
-        public int billet { get; set; }
+       
        
 
         public virtual int Pris()
@@ -61,6 +60,21 @@ namespace BilletLib
                 return Pris;
             }
            
+        }
+
+        int prismedmegetrabat;
+
+        public int rabat(int Pris)
+        {
+            if (Dato.DayOfWeek.Equals("Lørdag") || Dato.DayOfWeek.Equals("Søndag") )
+            {
+                prismedmegetrabat = Pris * (100 / 20);
+                return prismedmegetrabat;
+            }
+            else
+            {
+                return Pris;
+            }
         }
 
     }
