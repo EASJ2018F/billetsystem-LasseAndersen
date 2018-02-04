@@ -12,12 +12,12 @@ namespace BilletLib.Tests
     public class MCTests
     {
         [TestMethod()]
-        public void PrisTest()
+        public void PrisMCTest()
         {
 
             //Arrange
 
-            var PrisPåMC = new MC();
+            var PrisPåMC = new MC("1234567", DateTime.Today);
 
             //Act
 
@@ -28,11 +28,11 @@ namespace BilletLib.Tests
         }
 
         [TestMethod()]
-        public void KøretøjTest()
+        public void KøretøjMcTest()
         {
-            var køretøjsType = new MC();
+            var køretøjsType = new MC("1234567", DateTime.Today);
 
-            var type = køretøjsType.Køretøj();
+            var type = køretøjsType.køretøj();
 
 
             Assert.AreEqual("MC", type);
