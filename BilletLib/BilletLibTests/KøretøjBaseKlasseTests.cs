@@ -11,16 +11,5 @@ namespace BilletLib.Tests
     [TestClass()]
     public class KøretøjBaseKlasseTests
     {
-        [TestMethod()]
-        public void BilletTest()
-        {
-
-            //Arrange
-            KøretøjBaseKlasse bla = new KøretøjBaseKlasse;
-            //Act
-
-            //Assert
-            Assert.Fail();
-        }
     }
 }

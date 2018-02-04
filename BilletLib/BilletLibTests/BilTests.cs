@@ -16,12 +16,13 @@ namespace BilletLib.Tests
         {
             //Arrange
 
-            var PrisPåBil = new Bil("1234567", DateTime.Today);
+            var PrisPåBil = new Bil();
 
             //Act
 
             int pris = PrisPåBil.Pris();
 
+            //Assert
 
             Assert.AreEqual(240, pris);
         }
@@ -29,7 +30,7 @@ namespace BilletLib.Tests
         [TestMethod()]
         public void køretøjBilTest()
         {
-            var køretøjsType = new Bil("1234567",DateTime.Today);
+            var køretøjsType = new Bil();
 
             var type = køretøjsType.køretøj();
 
@@ -40,14 +41,47 @@ namespace BilletLib.Tests
         [TestMethod()]
         [ExpectedException(typeof(ArgumentException),"Nummerplade var for lang")]
 
-        public void TjekNummerPladeLængdetest()
+        public void NummerPladeForLangBil()
         {
             //Arrange
            
-            Bil b9 = new Bil("12345678", DateTime.Today);
+            Bil b9 = new Bil();
+
+            //Act
+
+            b9.Nummerplade = "12345678";
+
+            //Assert
+
+            Assert.AreEqual(8, b9.NummerpladeCheck());
 
 
         }
-        
+        [TestMethod()]
+        public void WeekendRabat()
+        {
+            //Arrange
+
+            Bil b99 = new Bil();
+
+            //Act
+            b99.weekendRabat = true;
+            //Assert
+
+
+        }
+
+        //[TestMethod()]
+        //public void StorRabat()
+        //{
+
+        //    var tyveprocentrabat = new Bil();
+
+        //    var rabat = tyveprocentrabat.rabat(240);
+
+        //    Assert.AreEqual(48, rabat);
+
+        //}
+
     }
 }

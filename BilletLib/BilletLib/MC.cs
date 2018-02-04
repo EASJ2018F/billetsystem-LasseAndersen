@@ -8,38 +8,14 @@ namespace BilletLib
 {
    public class MC : KøretøjBaseKlasse
     {
-        private String _nummerplade;
-        private DateTime _dato;
 
-        public MC(string nummerplade, DateTime dato)
-        {
-            _nummerplade = nummerplade;
-            _dato = dato;
+        public override string Nummerplade { get; set; }
+        public override DateTime Dato { get; set; }
+        public override bool HarBrobizz { get; set; }
+        public override int WeekendRabat { get; set; }
+        public override int Brobizz { get; set; }
 
-        }
-
-        public string NummerPlade
-        {
-            get
-            {
-                return _nummerplade;
-            }
-            set
-            {
-                value = _nummerplade;
-            }
-        }
-        public DateTime Dato
-        {
-            get
-            {
-                return _dato;
-            }
-            set
-            {
-                value = _dato;
-            }
-        }
+       
         public override int Pris()
         {
             return 125;

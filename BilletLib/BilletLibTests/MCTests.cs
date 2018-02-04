@@ -17,7 +17,7 @@ namespace BilletLib.Tests
 
             //Arrange
 
-            var PrisPåMC = new MC("1234567", DateTime.Today);
+            var PrisPåMC = new MC();
 
             //Act
 
@@ -30,12 +30,31 @@ namespace BilletLib.Tests
         [TestMethod()]
         public void KøretøjMcTest()
         {
-            var køretøjsType = new MC("1234567", DateTime.Today);
+            var køretøjsType = new MC();
 
             var type = køretøjsType.køretøj();
 
 
             Assert.AreEqual("MC", type);
+        }
+
+        [TestMethod()]
+        [ExpectedException(typeof(ArgumentException), "Nummerplade var for lang")]
+        public void NummerpladeForLangMC()
+        {
+            //Arrange
+
+            MC mc9 = new MC();
+
+            //Act
+
+            mc9.Nummerplade = "12345678";
+
+            //Assert
+
+            Assert.AreEqual(8, mc9.NummerpladeCheck());
+
+
         }
     }
 }

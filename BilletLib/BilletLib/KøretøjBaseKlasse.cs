@@ -7,43 +7,29 @@ using System.Threading.Tasks;
 
 namespace BilletLib
 {
-    public class KøretøjBaseKlasse
+    public abstract class KøretøjBaseKlasse
     {
 
-        private string _nummerplade;
-        private DateTime _dato;
-        private bool _harbrobizz;
+        public abstract string Nummerplade { get; set; }
+        public abstract DateTime Dato { get; set; }
+        public abstract bool HarBrobizz { get; set; }
+        public abstract int WeekendRabat { get; set; }
+        public abstract int Brobizz { get; set; }
 
-        public KøretøjBaseKlasse()
+
+
+        public abstract int Pris();
+
+        public abstract string køretøj();
+        
+
+        public int NummerpladeCheck()
         {
-            _nummerplade = Nummerplade;
-            _dato = Dato;
-            _harbrobizz = HarBrobizz;
-            if (Nummerplade.Length >= 8)
+            if (Nummerplade.Length > 7)
             {
-
-                throw new ArgumentOutOfRangeException("Nummerplade var for lang");
-
-
+                throw new ArgumentException("Nummerpladen er for lang eller for kort");
             }
-
-
-        }
-
-        public string Nummerplade { get; set; }
-        public DateTime Dato { get; set; }
-        public bool HarBrobizz { get; set; }
-       
-       
-
-        public virtual int Pris()
-        {
-            return 0;
-        }
-
-        public virtual string køretøj()
-        {
-            return "Køretøj";
+            return Nummerplade.Length;
         }
 
         int prismedrabat;
@@ -62,20 +48,9 @@ namespace BilletLib
            
         }
 
-        int prismedmegetrabat;
 
-        public int rabat(int Pris)
-        {
-            if (Dato.DayOfWeek.Equals("Lørdag") || Dato.DayOfWeek.Equals("Søndag") )
-            {
-                prismedmegetrabat = Pris * (100 / 20);
-                return prismedmegetrabat;
-            }
-            else
-            {
-                return Pris;
-            }
-        }
+
+ 
 
     }
 }

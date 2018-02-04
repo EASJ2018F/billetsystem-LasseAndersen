@@ -9,40 +9,16 @@ namespace BilletLib
     public class Bil : KøretøjBaseKlasse
     {
 
-        private String _nummerplade;
-        private DateTime _dato;
 
-        public Bil(string nummerplade, DateTime dato)
-        {
-            _nummerplade = nummerplade;
-            _dato = dato;
-           
-        }
 
-        public string NummerPlade
-        {
-            get
-            {
-                return _nummerplade;
-            }
-            set
-            {
-                value = _nummerplade;
-            }
-        }
-        public DateTime Dato
-        {
-            get
-            {
-                return _dato;
-            }
-            set
-            {
-                value = _dato;
-            }
-        }
+        public override string Nummerplade { get; set; }
+        public override DateTime Dato { get; set; }
+        public override bool HarBrobizz { get; set; }
+        public override int WeekendRabat { get; set; }
+        public override int Brobizz { get; set; }
 
-        
+
+
 
         public override int Pris()
         {
@@ -54,5 +30,22 @@ namespace BilletLib
             return "Bil";    
         }
 
+       
+
+
+        int prisMedMegetRabat;
+
+        public int weekendRabat(int Pris)
+        {
+            if (Dato.DayOfWeek.Equals("Lørdag") || Dato.DayOfWeek.Equals("Søndag"))
+            {
+                prisMedMegetRabat = Pris * (20/ 100);
+                return prisMedMegetRabat;
+            }
+            else
+            {
+                return Pris;
+            }
+        }
     }
 }
