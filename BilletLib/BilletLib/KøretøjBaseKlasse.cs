@@ -36,7 +36,7 @@ namespace BilletLib
         public int Billet(int Pris)
         {
 
-            if (HarBrobizz == true)
+            if (HarBrobizz)
             {
                 prismedrabat = Pris * (100 / 5);
                 return prismedrabat;
