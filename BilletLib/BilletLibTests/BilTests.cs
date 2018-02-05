@@ -65,9 +65,9 @@ namespace BilletLib.Tests
             Bil b99 = new Bil();
 
             //Act
-            b99.weekendRabat = true;
+            b99.weekendRabat(240);
             //Assert
-
+            Assert.AreEqual(48, b99.weekendRabat(240));
 
         }
 
