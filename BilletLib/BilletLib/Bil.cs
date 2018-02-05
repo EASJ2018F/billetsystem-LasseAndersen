@@ -37,9 +37,9 @@ namespace BilletLib
 
         public int weekendRabat(int Pris)
         {
-            if (Dato.DayOfWeek.Equals("Lørdag") || Dato.DayOfWeek.Equals("Søndag"))
+            if (Dato.DayOfWeek == DayOfWeek.Saturday || Dato.DayOfWeek == DayOfWeek.Sunday)
             {
-                prisMedMegetRabat = Pris * (20/ 100);
+                prisMedMegetRabat = Pris - (Pris * 20/ 100);
                 return prisMedMegetRabat;
             }
             else
